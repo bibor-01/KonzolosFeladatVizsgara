@@ -302,12 +302,12 @@ GUI segítség:
     }//GEN-LAST:event_formWindowClosing
     private void mentes() throws HeadlessException {
         JFileChooser jfc = new JFileChooser(new File("."));
-        jfc.setDialogTitle("Megnyitás..");
+        jfc.setDialogTitle("Megnyitás..");//<-I.A címe: Megnyitás
 
-        FileNameExtensionFilter filterKepek = new FileNameExtensionFilter("képek (*.jpg, *.gif)", "jpg", "gif");
-        FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("csak szöveg (*.txt)", "txt");
+        FileNameExtensionFilter filterKepek = new FileNameExtensionFilter("képek (*.jpg, *.gif)", "jpg", "gif");//<-II.	A filter szövege: „*.jpg, *.gif” 
+        FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("csak szöveg (*.txt)", "txt");//és 2*.txt”, amiből alapértelmezetten a *.txt legyen kiválasztva
 
-        jfc.addChoosableFileFilter(filterTxt);
+        jfc.addChoosableFileFilter(filterTxt);//hozzáadjuk a filter szöveget a könyvtárhoz
         jfc.addChoosableFileFilter(filterKepek);
 
         jfc.setFileFilter(filterTxt);

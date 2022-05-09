@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Program {
+public class Program_old {
 
     public static void main(String[] args) throws IOException {
         Galeria galeria = new Galeria();
@@ -41,9 +41,9 @@ public class Program {
             objKi.writeObject(galeria);
             objKi.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Program_old.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Program_old.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         galeria = null;
@@ -59,11 +59,11 @@ public class Program {
                 System.out.println(targy);
             }           
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Program_old.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Program_old.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Program_old.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
