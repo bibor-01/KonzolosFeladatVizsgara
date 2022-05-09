@@ -12,10 +12,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class MainForm extends javax.swing.JFrame {
 
     private boolean voltValtozas;
-    
+
     public MainForm() {
         initComponents();
-      
+        voltValtozas = false;
+
     }
 
     /**
@@ -58,6 +59,11 @@ public class MainForm extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImages(getIconImages());
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ellenfél"));
 
@@ -134,10 +140,20 @@ public class MainForm extends javax.swing.JFrame {
 
         buttonGroup2.add(rdbLapokFelsorol);
         rdbLapokFelsorol.setText("lapokat felsorol");
+        rdbLapokFelsorol.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                valtozas(evt);
+            }
+        });
 
         buttonGroup2.add(rdbLapokOsszERtek);
         rdbLapokOsszERtek.setSelected(true);
         rdbLapokOsszERtek.setText("lapok összértéke");
+        rdbLapokOsszERtek.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                valtozas(evt);
+            }
+        });
 
         btnMentes.setText("Mentés");
         btnMentes.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +209,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu1.add(menuMentes);
 
         jMenuItem2.setText("Kilépés");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -254,47 +275,62 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMentesActionPerformed
-        kilepes();
+        mentes();
     }//GEN-LAST:event_menuMentesActionPerformed
 
-    private void kilepes() throws HeadlessException {
+    private void btnMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMentesActionPerformed
+        mentes();
+    }//GEN-LAST:event_btnMentesActionPerformed
+
+    private void valtozas(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_valtozas
+        voltValtozas = true;
+    }//GEN-LAST:event_valtozas
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        kilepes();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        kilepes();
+    }//GEN-LAST:event_formWindowClosing
+    private void mentes() throws HeadlessException {
         JFileChooser jfc = new JFileChooser(new File("."));
         jfc.setDialogTitle("Megnyitás..");
-        
-        FileNameExtensionFilter filterKepek = new FileNameExtensionFilter("képek (*.jpg, *.gif)","jpg","gif");
-        FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("csak szöveg (*.txt)","txt");
-        
+
+        FileNameExtensionFilter filterKepek = new FileNameExtensionFilter("képek (*.jpg, *.gif)", "jpg", "gif");
+        FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("csak szöveg (*.txt)", "txt");
+
         jfc.addChoosableFileFilter(filterTxt);
         jfc.addChoosableFileFilter(filterKepek);
-        
+
         jfc.setFileFilter(filterTxt);
-        
-        int gomb = ( jfc.showOpenDialog(jPanel1));
-        if(gomb == JFileChooser.APPROVE_OPTION){
-            String fajlNev = ( "Fájl neve: " + jfc.getSelectedFile().getName());
+
+        int gomb = (jfc.showOpenDialog(jPanel1));
+        if (gomb == JFileChooser.APPROVE_OPTION) {
+            String fajlNev = ("Fájl neve: " + jfc.getSelectedFile().getName());
             String eleres = "Elérés" + jfc.getSelectedFile().getPath();
-            String uzenet = fajlNev + "\n" +eleres;
+            String uzenet = fajlNev + "\n" + eleres;
             felugro(uzenet);
-            
+
         }
     }
-    
-        private int felugro(String uzenet) {
+
+    private int felugro(String uzenet) {
         Icon icon = new ImageIcon(this.getClass().getResource("res/ikon.jpg"));
-        return JOptionPane.showConfirmDialog(rootPane, uzenet, "Kérdés",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, icon);
-        
+        return JOptionPane.showConfirmDialog(rootPane, uzenet, "Kérdés", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, icon);
+
     }
 
-    private void btnMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMentesActionPerformed
-         kilepes();
-    }//GEN-LAST:event_btnMentesActionPerformed
- 
-
-
-    
-
-    
-    public static void main(String args[]) {
+    private void kilepes() {
+        if (voltValtozas) {
+            if (felugro("Biztos kilép?") == JOptionPane.OK_OPTION) {
+                System.exit(0);
+            } else {
+                System.exit(0);
+            }
+        }
+    }
+   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -353,11 +389,4 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbLapokFelsorol;
     private javax.swing.JRadioButton rdbLapokOsszERtek;
     // End of variables declaration//GEN-END:variables
-
-
-
-   
-    
-
-    
 }
