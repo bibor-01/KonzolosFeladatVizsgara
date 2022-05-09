@@ -45,11 +45,11 @@ public class MainForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        mnuMentes = new javax.swing.JMenuItem();
-        mnuKilep = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        rdbKockaztat = new javax.swing.JRadioButtonMenuItem();
-        rdbNemKockaztat = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("BlackJack");
@@ -135,27 +135,12 @@ public class MainForm extends javax.swing.JFrame {
 
         buttonGroup2.add(rdbLapokFelsorol);
         rdbLapokFelsorol.setText("lapokat felsorol");
-        rdbLapokFelsorol.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                valtozas(evt);
-            }
-        });
 
         buttonGroup2.add(rdbLapokOsszERtek);
         rdbLapokOsszERtek.setSelected(true);
         rdbLapokOsszERtek.setText("lapok összértéke");
-        rdbLapokOsszERtek.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                valtozas(evt);
-            }
-        });
 
         btnMentes.setText("Mentés");
-        btnMentes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMentesActionPerformed(evt);
-            }
-        });
 
         jButton4.setText("Kilépés");
 
@@ -193,44 +178,28 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        mnuMentes.setText("Mentés");
-        mnuMentes.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Mentés");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuMentesActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(mnuMentes);
+        jMenu1.add(jMenuItem1);
 
-        mnuKilep.setText("Kilépés");
-        mnuKilep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuKilepActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnuKilep);
+        jMenuItem2.setText("Kilépés");
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Stratégia");
 
-        buttonGroup1.add(rdbKockaztat);
-        rdbKockaztat.setText("Kockázat");
-        rdbKockaztat.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                valtozas(evt);
-            }
-        });
-        jMenu2.add(rdbKockaztat);
+        buttonGroup1.add(jRadioButtonMenuItem1);
+        jRadioButtonMenuItem1.setText("Kockáztat");
+        jMenu2.add(jRadioButtonMenuItem1);
 
-        buttonGroup1.add(rdbNemKockaztat);
-        rdbNemKockaztat.setSelected(true);
-        rdbNemKockaztat.setText("Nem kockáztat");
-        rdbNemKockaztat.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                valtozas(evt);
-            }
-        });
-        jMenu2.add(rdbNemKockaztat);
+        buttonGroup1.add(jRadioButtonMenuItem2);
+        jRadioButtonMenuItem2.setText("Nem kockáztat");
+        jMenu2.add(jRadioButtonMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
@@ -270,26 +239,13 @@ public class MainForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMentesActionPerformed
-       
-    }//GEN-LAST:event_btnMentesActionPerformed
-
-    private void mnuMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMentesActionPerformed
-       
-    }//GEN-LAST:event_mnuMentesActionPerformed
-
-    private void mnuKilepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuKilepActionPerformed
-      
-    }//GEN-LAST:event_mnuKilepActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
     }//GEN-LAST:event_formWindowClosing
 
-    /* ButtonGroup1 és ButtonGroup2 gombokhoz */
-    private void valtozas(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_valtozas
-       
-    }//GEN-LAST:event_valtozas
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     
@@ -345,15 +301,15 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JMenuItem mnuKilep;
-    private javax.swing.JMenuItem mnuMentes;
-    private javax.swing.JRadioButtonMenuItem rdbKockaztat;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButton rdbLapokFelsorol;
     private javax.swing.JRadioButton rdbLapokOsszERtek;
-    private javax.swing.JRadioButtonMenuItem rdbNemKockaztat;
     // End of variables declaration//GEN-END:variables
 
     
