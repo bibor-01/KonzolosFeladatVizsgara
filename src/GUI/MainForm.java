@@ -10,7 +10,14 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class MainForm extends javax.swing.JFrame {
-
+/*
+GUI segítség:
+    -Kép megjelenítése label elemen:
+        -label beszúrása
+        -Propertis->icon->...->file->kép kiválasztása
+    -form fejlécének szövege az egész formra kattintva és a propertisben a title-be kell írni.
+    -Radiobuttonnal ha csak az egyik legyen kiválasztva properties->selected kipipálni.
+    */
     private boolean voltValtozas;
 
     public MainForm() {
