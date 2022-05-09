@@ -1,5 +1,5 @@
 
-package main;
+package GaleriaProjekt;
 
 public class Program {
 

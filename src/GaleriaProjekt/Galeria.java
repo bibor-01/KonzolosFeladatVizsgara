@@ -1,5 +1,5 @@
 
-package modell;
+package GaleriaProjekt;
 
 public class Galeria {
     
