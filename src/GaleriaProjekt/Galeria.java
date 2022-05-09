@@ -1,6 +1,7 @@
 package GaleriaProjekt;
 
 import java.io.File;
+import java.io.Serializable;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Galeria implements Iterable<KiallitasiTargy>{
+public class Galeria implements Iterable<KiallitasiTargy>, Serializable{
 
     private ArrayList<KiallitasiTargy> targyak;
 
@@ -25,14 +26,14 @@ public class Galeria implements Iterable<KiallitasiTargy>{
             //készítő és cím a mai dátummal
             Festmeny f2 = new Festmeny(LocalDate.now(), "keszito3", "cim2");
             //készítő és cím a hibás dátummal
-            Festmeny f3 = new Festmeny(LocalDate.parse("2022-11.14."), "keszito2", "cim1");
+            //Festmeny f3 = new Festmeny(LocalDate.parse("2022-11.14."), "keszito2", "cim1");
             //készítő és cím fájl eléréssel
             Festmeny f4 = new Festmeny(new File("kep.txt"), "keszito5", "cim4");
             //készítő és cím fájl eléréssel, mai dátummal
             Festmeny f5 = new Festmeny(new File("kep.txt"), LocalDate.now(), "keszito4", "cim5");
             targyak.add(f1);
             targyak.add(f2);
-            targyak.add(f3);
+            //targyak.add(f3);
             targyak.add(f4);
             targyak.add(f5);
         } catch (HibasDatumException ex) {
